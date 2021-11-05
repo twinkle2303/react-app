@@ -39,37 +39,44 @@ const Addform = () => {
 
   return (
     <Fragment>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="description"
-          name="description"
-          onChange={handleChange}
-          value={formData.description}
-        />
-        <input
-          type="number"
-          placeholder="Amount"
-          name="amount"
-          onChange={handleChange}
-          value={formData.amount}
-        />
-        <input
-          type="date"
-          name="date"
-          onChange={handleChange}
-          value={formData.date}
-        />
-        <textarea
-          name="note"
-          cols="30"
-          rows="10"
-          placeholder="Add a note for your expensse (optional)"
-          onChange={handleChange}
-          value={formData.note}
-        ></textarea>
-        <input type="submit" value="Submit Form" />
-      </form>
+      <div className="form-heading">
+        <div className="container">
+          <h1>Add Expense</h1>
+        </div>
+      </div>
+      <div className="container form-wrapper">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Description"
+            name="description"
+            onChange={handleChange}
+            value={formData.description}
+          />
+          <input
+            type="number"
+            placeholder="Amount"
+            name="amount"
+            onChange={handleChange}
+            value={formData.amount}
+          />
+          <input
+            type="date"
+            name="date"
+            onChange={handleChange}
+            value={formData.date}
+          />
+          <textarea
+            name="note"
+            cols="30"
+            rows="10"
+            placeholder="Add a note for your expensse (optional)"
+            onChange={handleChange}
+            value={formData.note}
+          ></textarea>
+          <input type="submit" value="Submit Form" />
+        </form>
+      </div>
     </Fragment>
   );
 };

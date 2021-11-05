@@ -1,13 +1,21 @@
-import React from "react";
+import React, { Fragment, useState } from "react";
+import DarkModeToggle from "react-dark-mode-toggle";
 
 const Navbar = () => {
+  const [isDarkMode, setIsDarkMode] = useState(() => false);
   return (
-    <div className="navbar">
-      <div className="container navbar-wrapper">
-        <h1>Budget App</h1>
-        <h3>Logout</h3>
+    <Fragment>
+      <div className="navbar">
+        <div className="container navbar-wrapper">
+          <h1>Budget App</h1>
+          <DarkModeToggle
+            onChange={setIsDarkMode}
+            checked={isDarkMode}
+            size={70}
+          />
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

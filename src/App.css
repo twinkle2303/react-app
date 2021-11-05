@@ -105,3 +105,37 @@
 .expense-item h6 {
   font: 8px;
 }
+
+/* Form */
+form input,
+form textarea {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+form textarea {
+  height: 120px;
+}
+
+.form-heading {
+  height: 200px;
+  background-color: #f7f7f7;
+}
+
+.form-heading h1 {
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+form input[type="submit"] {
+  width: 160px;
+  padding: 15px 20px;
+  border: none;
+  outline: none;
+  margin-top: 15px;
+  background-color: #1c88bf;
+  font-size: 18px;
+  color: white;
+}
