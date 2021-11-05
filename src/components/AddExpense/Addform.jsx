@@ -5,10 +5,9 @@ import { useHistory } from "react-router-dom";
 const Addform = () => {
   const history = useHistory();
   //Consumer
-  let { addExpense } = useContext(GlobalContext);
 
   let [formData, setFormData] = useState({
-    descrition: "",
+    description: "",
     amount: 0,
     date: "",
     note: "",
@@ -31,7 +30,7 @@ const Addform = () => {
 
   const clearInputs = () => {
     setFormData({
-      descrition: "",
+      description: "",
       amount: 0,
       date: "",
       note: "",
