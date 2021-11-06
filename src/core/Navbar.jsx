@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <Fragment>
       <div className="navbar">
-        <div className="container navbar-wrapper">
+        <div className="navbar-wrapper">
           <h1>Budget App</h1>
           <DarkModeToggle
             onChange={setIsDarkMode}

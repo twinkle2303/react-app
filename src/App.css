@@ -9,7 +9,6 @@
   background-color: #364051;
   color: white;
 }
-
 .navbar .navbar-wrapper {
   height: 100%;
   width: 60%;
@@ -29,7 +28,6 @@
   background-color: #f7f7f7;
   /* border: 1px #f7f7f7
   solid; */
-
 }
 
 .expense-content h1 {
@@ -119,7 +117,7 @@ form textarea {
 }
 
 .form-heading {
-  height: 300px;
+  height: 200px;
   background-color: #f7f7f7;
 }
 
