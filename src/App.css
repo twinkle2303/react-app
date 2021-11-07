@@ -13,7 +13,7 @@
 }
 
 .nav-dark {
-  background-color: rgb(44, 44, 82);
+  background-color: #153444;
   color: white;
 }
 .navbar .navbar-wrapper {
@@ -31,14 +31,15 @@
 }
 /* Expense Details */
 .expensedetails {
-  height: 250px;
+  height: 210px;
+  background-color: black;
 }
 .header-light {
   background-color: #f7f7f7;
 }
 
 .header-dark {
-  background-color: #8b8a8ae3;
+  background-color: rgb(29, 25, 25);
   color: white;
 }
 
@@ -53,6 +54,7 @@
   outline: none;
   color: white;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .btn-light {
@@ -135,8 +137,8 @@
 }
 
 .item-dark {
-  background-color: rgba(41, 41, 41, 0.712);
-  border: 1px solid #ccc;
+  background-color: rgb(29, 25, 25);
+  border: 1px solid rgb(54, 54, 54);
   color: White;
 }
 .expense-item h5 {
@@ -162,7 +164,6 @@ form textarea {
 
 .form-heading {
   height: 200px;
-  background-color: #f7f7f7;
 }
 
 .form-heading h1 {
@@ -170,13 +171,12 @@ form textarea {
   font-weight: 500;
 }
 
-form input[type="submit"] {
+.submit-btn {
   width: 160px;
   padding: 15px 20px;
   border: none;
   outline: none;
   margin-top: 15px;
-  background-color: #1c88bf;
   font-size: 18px;
   color: white;
 }
