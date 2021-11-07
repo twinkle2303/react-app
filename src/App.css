@@ -8,7 +8,7 @@
   height: 10vh;
 }
 .nav-light {
-  background-color: #7f9cce;
+  background-color: #1c88bf;
   color: white;
 }
 
@@ -193,4 +193,13 @@ form textarea {
 
 .settings {
   margin-left: 20px;
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.layout {
+  margin: 30px 20px;
 }

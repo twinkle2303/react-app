@@ -2,11 +2,13 @@ import React, { Fragment, useState, useContext } from "react";
 import DarkModeToggle from "react-dark-mode-toggle";
 import { ThemeContext } from "../context/ThemeContext";
 import { FcSettings } from "react-icons/fc";
-import ReactDOM from "react-dom";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => false);
+  const [open, setOpen] = useState(false);
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
   const onClick = () => {
@@ -16,10 +18,6 @@ const Navbar = () => {
       theme.dispatch({ type: "DARKMODE" });
     }
   };
-  const [open, setOpen] = useState(false);
-
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
   return (
     <Fragment>
       <div className={`navbar ${darkMode ? "nav-dark" : "nav-light"}`}>
@@ -33,12 +31,28 @@ const Navbar = () => {
                 size={70}
               />
             </span>
-            <h1 className="settings" onClick={onOpenModal}>
+            <button className="settings" onClick={onOpenModal}>
               <FcSettings />
-            </h1>
+            </button>
           </div>
         </div>
       </div>
+      <Modal open={open} onClose={onCloseModal} center>
+        <div className="modal-wrapper">
+          <div className="layout">
+            <label for="layout-dropdown">Choose a layout: </label>
+            <select
+              name="layout-dropdown"
+              className="layout-dropdown"
+              placeholder="Select Layout"
+            >
+              <option value="budget">Budget App</option>
+              <option value="todo">Todo App</option>
+              <option value="fitness">Fitness Tracker App</option>
+            </select>
+          </div>
+        </div>
+      </Modal>
     </Fragment>
   );
 };
