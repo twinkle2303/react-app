@@ -1,7 +1,10 @@
 import React, { Fragment, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { GlobalContext } from "../../context/ExpenseContext";
 import { ThemeContext } from "../../context/ThemeContext";
+
 const ExpenseDetails = () => {
+  let { expenses } = useContext(GlobalContext);
   let history = useHistory();
   console.log(history);
 
@@ -18,7 +21,7 @@ const ExpenseDetails = () => {
         }`}
       >
         <div className="container expense-content">
-          <h1>Viewing 0 expenses totalling $0.00</h1>
+          <h1>Viewing {expenses.length} expenses totalling $0.00</h1>
           {/* <a href="/addexpense">AddExpense</a> */}
           {/* <Link to="/addexpense">Add Expense</Link> */}
           <button

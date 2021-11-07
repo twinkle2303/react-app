@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
-
 const ExpenseListItem = ({ idx, item }) => {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
@@ -14,7 +13,7 @@ const ExpenseListItem = ({ idx, item }) => {
         <h6>{item.date}</h6>
       </span>
 
-      <strong>{item.amount}</strong>
+      <strong>₹{item.amount}</strong>
     </li>
   );
 };

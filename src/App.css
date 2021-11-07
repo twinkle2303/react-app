@@ -107,6 +107,9 @@
   background-color: black;
   color: white;
 }
+.ExpenseWrapper {
+  height: 40vh;
+}
 .expense-wrapper-heading {
   display: flex;
   justify-content: space-between;
