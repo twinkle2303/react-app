@@ -6,7 +6,14 @@
 
 .navbar {
   height: 10vh;
-  background-color: #364051;
+}
+.nav-light {
+  background-color: #7f9cce;
+  color: white;
+}
+
+.nav-dark {
+  background-color: black;
   color: white;
 }
 .navbar .navbar-wrapper {
@@ -135,4 +142,9 @@ form input[type="submit"] {
   background-color: #1c88bf;
   font-size: 18px;
   color: white;
+}
+
+.theme-btn {
+  display: flex;
+  align-items: center;
 }
