@@ -13,7 +13,7 @@
 }
 
 .nav-dark {
-  background-color: black;
+  background-color: rgb(44, 44, 82);
   color: white;
 }
 .navbar .navbar-wrapper {
@@ -32,9 +32,14 @@
 /* Expense Details */
 .expensedetails {
   height: 250px;
+}
+.header-light {
   background-color: #f7f7f7;
-  /* border: 1px #f7f7f7
-  solid; */
+}
+
+.header-dark {
+  background-color: #8b8a8ae3;
+  color: white;
 }
 
 .expense-content h1 {
@@ -46,12 +51,27 @@
   padding: 15px 20px;
   border: none;
   outline: none;
-  background-color: #1c88bf;
-  font-size: 18px;
   color: white;
+  font-size: 18px;
+}
+
+.btn-light {
+  background-color: #1c88bf;
+}
+
+.btn-dark {
+  background-color: #153444;
 }
 
 /* Filter form */
+.filter-light {
+  background-color: white;
+}
+.filter-dark {
+  background-color: rgb(8, 8, 8);
+  color: white;
+}
+
 .filter-content {
   display: flex;
   justify-content: space-between;
@@ -71,18 +91,26 @@
 
 .filter-content select {
   width: 150px;
-  border: 1px solid cyan;
-  padding: 0 10px;
+  border: 1px solid #ccc;
+  padding: 15px 18px;
   font-size: 18px;
+  border-radius: 5px;
+}
+.wrap-light {
+  background-color: white;
+  color: #666;
 }
 
+.wrap-dark {
+  background-color: black;
+  color: white;
+}
 .expense-wrapper-heading {
   display: flex;
   justify-content: space-between;
   font-size: 18px;
-  color: #666;
   font-weight: 500;
-  margin: 0 330px;
+  margin: 0 350px;
 }
 
 .ExpenseItemList {
@@ -96,12 +124,21 @@
   justify-content: space-between;
   align-items: center;
   font-size: 24px;
-  color: #313131;
   margin: 18px 0;
-  border: 1px solid #ddd;
+  border-radius: 5px;
   padding: 15px;
 }
+.item-light {
+  background-color: rgba(204, 204, 204, 0.24);
+  border: 1px solid #ddd;
+  color: #313131;
+}
 
+.item-dark {
+  background-color: rgba(41, 41, 41, 0.712);
+  border: 1px solid #ccc;
+  color: White;
+}
 .expense-item h5 {
   margin-bottom: 10px;
 }

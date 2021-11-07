@@ -1,8 +1,15 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const ExpenseFilterForm = () => {
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   return (
-    <div className="ExpenseFilterForm">
+    <div
+      className={`ExpenseFilterForm ${
+        darkMode ? "filter-dark" : "filter-light"
+      }`}
+    >
       <div className="container filter-content">
         <input
           type="text"

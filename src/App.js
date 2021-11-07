@@ -4,15 +4,12 @@ import HomePage from "./Pages/HomePage/HomePage";
 import AddExpense from "./Pages/AddExpense/AddExpense";
 import Navbar from "./core/Navbar";
 import { GlobalProvider } from "./context/ExpenseContext";
-import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
   return (
     <GlobalProvider>
       <Router>
-        <ThemeProvider>
-          <Navbar />
-        </ThemeProvider>
+        <Navbar />
 
         <Switch>
           <Route exact path="/" component={HomePage} />
