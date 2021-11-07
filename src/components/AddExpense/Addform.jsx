@@ -8,7 +8,7 @@ const Addform = () => {
   //Consumer
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
-
+  const { addExpense } = useContext(GlobalContext);
   let [formData, setFormData] = useState({
     description: "",
     amount: 0,
@@ -24,6 +24,7 @@ const Addform = () => {
     e.preventDefault();
     console.log(formData);
 
+    addExpense(formData);
     //clearInputs
     clearInputs();
 

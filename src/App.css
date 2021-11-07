@@ -179,6 +179,7 @@ form textarea {
   margin-top: 15px;
   font-size: 18px;
   color: white;
+  cursor: pointer;
 }
 
 .theme-btn {
