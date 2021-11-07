@@ -1,9 +1,12 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const ExpenseFilterForm = () => {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
+  const [startDate, setStartDate] = useState(new Date());
   return (
     <div
       className={`ExpenseFilterForm ${
@@ -23,7 +26,12 @@ const ExpenseFilterForm = () => {
           </option>
           <option value="2">Amount</option>
         </select>
-        <h1>Date Picker</h1>
+        <div className="date">
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+          />
+        </div>
       </div>
     </div>
   );

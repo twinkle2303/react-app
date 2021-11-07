@@ -159,7 +159,7 @@ form textarea {
 }
 
 form textarea {
-  height: 120px;
+  height: 200px;
 }
 
 .form-heading {
@@ -184,4 +184,13 @@ form textarea {
 .theme-btn {
   display: flex;
   align-items: center;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.settings {
+  margin-left: 20px;
 }
