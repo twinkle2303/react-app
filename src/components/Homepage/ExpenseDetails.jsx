@@ -13,6 +13,8 @@ const ExpenseDetails = () => {
   };
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
+  let totalAmt;
+  totalAmt = expenses.reduce((acc, item) => (acc += Number(item.amount)), 0);
   return (
     <Fragment>
       <div
@@ -21,9 +23,9 @@ const ExpenseDetails = () => {
         }`}
       >
         <div className="container expense-content">
-          <h1>Viewing {expenses.length} expenses totalling $0.00</h1>
-          {/* <a href="/addexpense">AddExpense</a> */}
-          {/* <Link to="/addexpense">Add Expense</Link> */}
+          <h1>
+            Viewing {expenses.length} expenses totalling ₹{totalAmt}
+          </h1>
           <button
             className={`add-expense-btn ${
               darkMode ? "btn-dark" : "btn-light"

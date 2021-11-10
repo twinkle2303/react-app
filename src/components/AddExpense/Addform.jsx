@@ -59,6 +59,7 @@ const Addform = () => {
               name="description"
               onChange={handleChange}
               value={formData.description}
+              required
             />
             <input
               type="number"
@@ -66,24 +67,26 @@ const Addform = () => {
               name="amount"
               onChange={handleChange}
               value={formData.amount}
+              required
             />
             <input
               type="date"
               name="date"
               onChange={handleChange}
               value={formData.date}
+              required
             />
             <textarea
               name="note"
               cols="30"
               rows="10"
-              placeholder="Add a note for your expensse (optional)"
+              placeholder="Add a note for your expense (optional)"
               onChange={handleChange}
               value={formData.note}
             ></textarea>
             <input
               type="submit"
-              value="Submit Form"
+              value="Save Expense"
               className={`submit-btn ${darkMode ? "btn-dark" : "btn-light"}`}
             />
           </form>

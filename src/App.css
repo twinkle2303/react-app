@@ -1,3 +1,12 @@
+@import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-lists/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-inputs/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-popups/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-react-calendars/styles/material.css";
+
+/* date range picker */
+
 .container {
   max-width: 1000px;
   margin: auto;
@@ -8,12 +17,12 @@
   height: 10vh;
 }
 .nav-light {
-  background-color: #1c88bf;
+  background-image: url("./images/lightbg.jpg");
   color: white;
 }
 
 .nav-dark {
-  background-color: #153444;
+  background-image: url("./images/darkbg.png");
   color: white;
 }
 .navbar .navbar-wrapper {
@@ -35,12 +44,14 @@
   background-color: black;
 }
 .header-light {
-  background-color: #f7f7f7;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+  border-bottom: 2px solid #0396ff67;
 }
 
 .header-dark {
-  background-color: rgb(29, 25, 25);
+  background-image: linear-gradient(to left, #434343 0%, black 100%);
   color: white;
+  border-bottom: 2px solid rgb(5, 8, 41);
 }
 
 .expense-content h1 {
@@ -52,17 +63,58 @@
   padding: 15px 20px;
   border: none;
   outline: none;
-  color: white;
   font-size: 18px;
   cursor: pointer;
 }
 
 .btn-light {
-  background-color: #1c88bf;
+  background-image: linear-gradient(
+    to right,
+    #36d1dc 0%,
+    #5b86e5 51%,
+    #36d1dc 100%
+  );
+}
+.btn-light {
+  font-weight: bold;
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  display: block;
+}
+
+.btn-light:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
 }
 
 .btn-dark {
-  background-color: #153444;
+  background-image: linear-gradient(
+    to right,
+    #abbaab 0%,
+    #ffffff 51%,
+    #abbaab 100%
+  );
+}
+.btn-dark {
+  font-weight: bold;
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  background-size: 200% auto;
+  color: rgb(6, 15, 54);
+  display: block;
+}
+
+.btn-dark:hover {
+  background-position: right center;
+  text-decoration: none;
 }
 
 /* Filter form */
@@ -77,6 +129,7 @@
 .filter-content {
   display: flex;
   justify-content: space-between;
+  padding: 50px 120px;
 }
 
 .filter-content input {
@@ -98,6 +151,14 @@
   font-size: 18px;
   border-radius: 5px;
 }
+.filter-content .date {
+  border: 1px solid #ccc;
+  width: 250px;
+  padding: 15px 18px;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
 .wrap-light {
   background-color: white;
   color: #666;
@@ -134,8 +195,8 @@
   padding: 15px;
 }
 .item-light {
-  background-color: rgba(204, 204, 204, 0.24);
-  border: 1px solid #ddd;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f58f 100%);
+  border: 1px solid rgb(122, 134, 201);
   color: #313131;
 }
 
@@ -151,7 +212,21 @@
 .expense-item h6 {
   font: 8px;
 }
+.amount {
+  margin-right: 20px;
+}
 
+.edit,
+.delete {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.edit {
+  color: rgba(115, 207, 115, 0.61);
+}
+.delete {
+  color: rgba(255, 0, 0, 0.322);
+}
 /* Form */
 form input,
 form textarea {
@@ -175,13 +250,12 @@ form textarea {
 }
 
 .submit-btn {
-  width: 160px;
+  width: 180px;
   padding: 15px 20px;
   border: none;
   outline: none;
   margin-top: 15px;
   font-size: 18px;
-  color: white;
   cursor: pointer;
 }
 
