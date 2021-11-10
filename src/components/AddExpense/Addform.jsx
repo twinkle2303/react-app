@@ -1,20 +1,37 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useContext, useState, useEffect } from "react";
 import { GlobalContext } from "../../context/ExpenseContext";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
-
+import { v4 as uuidv4 } from "uuid";
 const Addform = () => {
-  const history = useHistory();
-  //Consumer
-  const theme = useContext(ThemeContext);
-  const darkMode = theme.state.darkMode;
-  const { addExpense } = useContext(GlobalContext);
+  let [data, setdata] = useState(null);
+  let params = useParams();
+  let { extractitem, foundobj } = useContext(GlobalContext);
+  useEffect(() => {
+    if (params.id !== undefined) {
+      extractitem(params.id);
+      setdata(foundobj);
+    }
+  }, [foundobj]);
+  let history = useHistory();
+
+  let { addExpense, expenses, replacewithnew } = useContext(GlobalContext);
   let [formData, setFormData] = useState({
     description: "",
     amount: 0,
     date: "",
     note: "",
+    id: "",
   });
+  useEffect(() => {
+    if (data !== null || data !== undefined) {
+      setFormData({ ...data });
+      console.log(formData);
+    }
+  }, [data]);
+  //theme
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,34 +39,24 @@ const Addform = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    if (params.id === undefined) {
+      addExpense({ ...formData, id: uuidv4() });
+    } else {
+      console.log(formData);
+      replacewithnew(formData);
+    }
 
-    addExpense(formData);
-    //clearInputs
-    clearInputs();
-
-    //redirect to homepage
-    history.push("/");
-  };
-
-  const clearInputs = () => {
     setFormData({
       description: "",
-      amount: 0,
+      amount: "",
       date: "",
       note: "",
     });
+    history.push("/");
   };
 
   return (
     <Fragment>
-      <div
-        className={`form-heading ${darkMode ? "header-dark" : "header-light"}`}
-      >
-        <div className="container">
-          <h1>Add Expense</h1>
-        </div>
-      </div>
       <div className={`form-wrapper ${darkMode ? "wrap-dark" : "wrap-light"}`}>
         <div className="container">
           <form onSubmit={handleSubmit}>

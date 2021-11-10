@@ -6,7 +6,6 @@ import { ThemeContext } from "../../context/ThemeContext";
 const ExpenseDetails = () => {
   let { expenses } = useContext(GlobalContext);
   let history = useHistory();
-  console.log(history);
 
   const handleClick = () => {
     history.push("/addexpense");

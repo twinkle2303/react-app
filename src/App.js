@@ -5,7 +5,7 @@ import AddExpense from "./Pages/AddExpense/AddExpense";
 import Navbar from "./core/Navbar";
 import { GlobalProvider } from "./context/ExpenseContext";
 import "react-responsive-modal/styles.css";
-
+import Settings from "./Pages/Settings/Settings";
 function App() {
   return (
     <GlobalProvider>
@@ -15,6 +15,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/addexpense" component={AddExpense} />
+          <Route exact={true} path="/edit/:id" component={AddExpense} />
+          <Route exact={true} path="/settings" component={Settings} />
         </Switch>
       </Router>
     </GlobalProvider>

@@ -5,6 +5,8 @@ import ExpenseReducer from "./ExpenseReducer";
 
 const initialState = {
   expenses: [],
+  foundobj: null,
+  settingstype: "",
 };
 
 // Created Context
@@ -20,12 +22,41 @@ export const GlobalProvider = ({ children }) => {
       payload: newExpense,
     });
   };
+  const settheme = (toggle) => {
+    dispatch({
+      type: "SET_THEME",
+      payload: toggle,
+    });
+  };
+  const extractitem = (id) => {
+    dispatch({
+      type: "EXTRACT_ITEM",
+      payload: id,
+    });
+  };
+  const replacewithnew = (obj) => {
+    dispatch({
+      type: "REPLACE_WITH",
+      payload: obj,
+    });
+  };
+  const changetype = (str) => {
+    dispatch({
+      type: "CHANGE_TYPE",
+      payload: str,
+    });
+  };
 
   return (
     <GlobalContext.Provider
       value={{
         expenses: state.expenses,
-        addExpense: addExpense,
+        foundobj: state.foundobj,
+        settingstype: state.settingstype,
+        addExpense,
+        extractitem,
+        replacewithnew,
+        changetype,
       }}
     >
       {children}
