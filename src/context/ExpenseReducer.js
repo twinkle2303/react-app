@@ -19,7 +19,6 @@ export default (state, action) => {
           element.amount = action.payload.amount;
           element.date = action.payload.date;
           element.note = action.payload.note;
-          console.log(element.description);
         }
       });
       return state;
@@ -27,6 +26,11 @@ export default (state, action) => {
       return {
         ...state,
         settingstype: action.payload,
+      };
+    case "DEL_ITEM":
+      return {
+        ...state,
+        expenses: state.expenses.filter((item) => item.id !== action.payload),
       };
     default:
       return state;

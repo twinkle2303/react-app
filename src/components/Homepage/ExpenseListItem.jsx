@@ -2,10 +2,12 @@ import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { useHistory } from "react-router-dom";
 import { FaRegEdit, FaTrashAlt } from "react-icons/fa";
+import { GlobalContext } from "../../context/ExpenseContext";
 
 const ExpenseListItem = ({ idx, item }) => {
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
+  let { removeExpense } = useContext(GlobalContext);
   let history = useHistory();
   let calcdate = item.date.split("-");
   let month = [
@@ -25,6 +27,10 @@ const ExpenseListItem = ({ idx, item }) => {
   const handleEdit = (id) => {
     history.push(`/edit/${id}`);
   };
+
+  const handleRemove = (id) => {
+    removeExpense(id);
+  };
   return (
     <li
       className={`expense-item ${darkMode ? "item-dark" : "item-light"}`}
@@ -42,7 +48,7 @@ const ExpenseListItem = ({ idx, item }) => {
         <span className="edit" onClick={() => handleEdit(item.id)}>
           <FaRegEdit />
         </span>
-        <span className="delete">
+        <span className="delete" onClick={() => handleRemove(item.id)}>
           <FaTrashAlt />
         </span>
       </div>
