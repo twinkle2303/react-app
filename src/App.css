@@ -168,7 +168,7 @@
   color: white;
 }
 .ExpenseWrapper {
-  height: 40vh;
+  height: 100%;
 }
 .expense-wrapper-heading {
   display: flex;
@@ -245,7 +245,9 @@ form textarea {
 .form-heading {
   height: 200px;
 }
-
+input[type="date"] {
+  text-transform: uppercase;
+}
 .form-heading h1 {
   margin-bottom: 30px;
   font-weight: 500;

@@ -23,7 +23,9 @@ const ExpenseDetails = () => {
       >
         <div className="container expense-content">
           <h1>
-            Viewing {expenses.length} expenses totalling ₹{totalAmt}
+            Viewing {expenses.length}{" "}
+            {expenses.length === 1 ? "expense" : "expenses"} totalling ₹
+            {totalAmt}
           </h1>
           <button
             className={`add-expense-btn ${

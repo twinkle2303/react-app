@@ -42,7 +42,6 @@ const Addform = () => {
     if (params.id === undefined) {
       addExpense({ ...formData, id: uuidv4() });
     } else {
-      console.log(formData);
       replacewithnew(formData);
     }
 
