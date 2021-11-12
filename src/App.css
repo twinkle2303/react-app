@@ -13,15 +13,14 @@
 
 .navbar {
   height: 10vh;
+  color: white;
 }
 .nav-light {
   background-image: url("./images/lightbg.jpg");
-  color: white;
 }
 
 .nav-dark {
   background-image: url("./images/darkbg.png");
-  color: white;
 }
 .navbar .navbar-wrapper {
   height: 100%;
@@ -284,4 +283,45 @@ input[type="date"] {
 
 .layout {
   margin: 30px 20px;
+}
+
+.settings1 {
+  width: 100%;
+  height: 500px;
+}
+.settings2 {
+  width: 47%;
+  margin: auto;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.settingsoptions ul {
+  list-style: none;
+  margin: 15px 0;
+}
+.settingsoptions h2 {
+  color: white;
+}
+.settingsoptions ul li {
+  margin: 5px 0;
+  color: white;
+  padding: 7px 12px;
+  width: 141px;
+  cursor: pointer;
+}
+.settingsoptions h2 {
+  margin-left: 10px;
+}
+.settings1 .options:hover {
+  background-color: rgba(135, 194, 250, 0.473);
+  color: black !important;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.clicked {
+  background-color: rgba(135, 194, 250, 0.473);
+  color: black !important;
+  border-radius: 10px;
+  cursor: pointer;
 }
