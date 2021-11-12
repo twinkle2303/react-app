@@ -46,17 +46,23 @@ export const GlobalProvider = ({ children }) => {
       payload: item,
     });
   };
+  const changetype = (str) => {
+    dispatch({
+      type: "CHANGE_TYPE",
+      payload: str,
+    });
+  };
   return (
     <GlobalContext.Provider
       value={{
         expenses: state.expenses,
         foundobj: state.foundobj,
-
         item: state.item,
+        settingstype: state.settingstype,
         addExpense,
         extractitem,
         replacewithnew,
-
+        changetype,
         removeExpense,
       }}
     >
