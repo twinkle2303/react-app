@@ -5,7 +5,7 @@ const SettingsOptions = () => {
   let { changetype } = useContext(GlobalContext);
   const handleClick = (e) => {
     let ulchild = e.target.parentElement.children;
-
+    console.log(ulchild);
     for (let i = 0; i < ulchild.length; i++) {
       if (ulchild[i].classList.contains("clicked")) {
         ulchild[i].classList.remove("clicked");

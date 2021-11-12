@@ -37,7 +37,6 @@ export default (state, action) => {
         ...state,
         settingstype: action.payload,
       };
-
     default:
       return state;
   }

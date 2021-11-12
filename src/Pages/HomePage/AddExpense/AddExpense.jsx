@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { useParams } from "react-router-dom";
-import Expenseheader from "../../components/AddExpense/Expenseheader";
-import Addform from "../../components/AddExpense/Addform";
+import Expenseheader from "../../../components/AddExpense/Expenseheader";
+import Addform from "../../../components/AddExpense/Addform";
 
 const AddExpense = () => {
   let params = useParams();
