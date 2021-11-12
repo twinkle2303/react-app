@@ -8,7 +8,7 @@ const Settings = () => {
   const darkMode = theme.state.darkMode;
   return (
     <div className={`settings1 ${darkMode ? "nav-dark" : "nav-light"}`}>
-      <div className=" container settings2">
+      <div className="settings2">
         <SettingsOptions />
         <SettingsWrapper />
       </div>
