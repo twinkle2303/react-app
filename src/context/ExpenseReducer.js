@@ -32,6 +32,12 @@ export default (state, action) => {
         ...state,
         expenses: state.expenses.filter((item) => item.id !== action.payload),
       };
+    case "CHANGE_TYPE":
+      return {
+        ...state,
+        settingstype: action.payload,
+      };
+
     default:
       return state;
   }
