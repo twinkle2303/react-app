@@ -15,10 +15,16 @@
   height: 10vh;
   color: white;
 }
-.nav-light {
+.nav-light-blue {
   background-image: url("./images/lightbg.jpg");
 }
+.nav-light-green {
+  background-image: url("./images/Green.jpg");
+}
 
+.nav-light-ig {
+  background-image: url("./images/Instagram.jpg");
+}
 .nav-dark {
   background-image: url("./images/darkbg.png");
 }
@@ -64,7 +70,7 @@
   cursor: pointer;
 }
 
-.btn-light {
+.btn-light-blue {
   background-image: linear-gradient(
     to right,
     #36d1dc 0%,
@@ -72,7 +78,7 @@
     #36d1dc 100%
   );
 }
-.btn-light {
+.btn-light-blue {
   font-weight: bold;
   margin: 10px;
   padding: 15px 45px;
@@ -84,7 +90,59 @@
   display: block;
 }
 
-.btn-light:hover {
+.btn-light-blue:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-light-green {
+  background-image: linear-gradient(
+    to right,
+    #16a085 0%,
+    #f4d03f 51%,
+    #16a085 100%
+  );
+}
+.btn-light-green {
+  font-weight: bold;
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  display: block;
+}
+
+.btn-light-green:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-light-ig {
+  background-image: linear-gradient(
+    to right,
+    #ff512f 0%,
+    #dd2476 51%,
+    #ff512f 100%
+  );
+}
+.btn-light-ig {
+  font-weight: bold;
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  display: block;
+}
+
+.btn-light-ig:hover {
   background-position: right center;
   color: #fff;
   text-decoration: none;
@@ -195,7 +253,7 @@
 }
 .item-light {
   background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f58f 100%);
-  border: 1px solid rgb(122, 134, 201);
+  border: 1px solid rgb(168, 168, 170);
   color: #313131;
 }
 
@@ -314,13 +372,13 @@ input[type="date"] {
   margin-left: 10px;
 }
 .settings1 .options:hover {
-  background-color: rgba(135, 194, 250, 0.473);
+  background-color: rgba(255, 255, 255, 0.473);
   color: black !important;
   border-radius: 10px;
   cursor: pointer;
 }
 .clicked {
-  background-color: rgba(135, 194, 250, 0.473);
+  background-color: rgba(255, 255, 255, 0.473);
   color: black !important;
   border-radius: 10px;
   cursor: pointer;
@@ -343,7 +401,9 @@ input[type="date"] {
   text-transform: capitalize;
 }
 
-.themes {
+.blue,
+.green,
+.instagram {
   text-align: center;
   border: solid 1px white;
   border-radius: 5px;

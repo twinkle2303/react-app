@@ -7,6 +7,7 @@ const initialState = {
   expenses: [],
   foundobj: null,
   settingstype: "",
+  themetype: "",
 };
 
 // Created Context
@@ -22,12 +23,7 @@ export const GlobalProvider = ({ children }) => {
       payload: newExpense,
     });
   };
-  const settheme = (toggle) => {
-    dispatch({
-      type: "SET_THEME",
-      payload: toggle,
-    });
-  };
+
   const extractitem = (id) => {
     dispatch({
       type: "EXTRACT_ITEM",
@@ -52,6 +48,12 @@ export const GlobalProvider = ({ children }) => {
       payload: str,
     });
   };
+  const changetheme = (str) => {
+    dispatch({
+      type: "CHANGE_THEME",
+      payload: str,
+    });
+  };
   return (
     <GlobalContext.Provider
       value={{
@@ -59,11 +61,13 @@ export const GlobalProvider = ({ children }) => {
         foundobj: state.foundobj,
         item: state.item,
         settingstype: state.settingstype,
+        themetype: state.themetype,
         addExpense,
         extractitem,
         replacewithnew,
         changetype,
         removeExpense,
+        changetheme,
       }}
     >
       {children}

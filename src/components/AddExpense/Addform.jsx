@@ -53,6 +53,7 @@ const Addform = () => {
     });
     history.push("/");
   };
+  let { themetype } = useContext(GlobalContext);
 
   return (
     <Fragment>
@@ -93,7 +94,17 @@ const Addform = () => {
             <input
               type="submit"
               value="Save Expense"
-              className={`submit-btn ${darkMode ? "btn-dark" : "btn-light"}`}
+              className={`submit-btn ${
+                darkMode
+                  ? "btn-dark"
+                  : !darkMode && themetype === "blue"
+                  ? "btn-light-blue"
+                  : !darkMode && themetype === "green"
+                  ? "btn-light-green"
+                  : !darkMode && themetype === "instagram"
+                  ? "btn-light-ig"
+                  : "btn-light-blue"
+              }`}
             />
           </form>
         </div>
