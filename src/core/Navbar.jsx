@@ -4,10 +4,13 @@ import { useHistory } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext";
 import { FcSettings } from "react-icons/fc";
 import "react-responsive-modal/styles.css";
+import { GlobalContext } from "../context/ExpenseContext";
+
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => false);
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
+  let { themetype } = useContext(GlobalContext);
   let history = useHistory();
   const handleClick = () => {
     history.push("/");
@@ -24,7 +27,19 @@ const Navbar = () => {
   };
   return (
     <Fragment>
-      <div className={`navbar ${darkMode ? "nav-dark" : "nav-light"}`}>
+      <div
+        className={`navbar ${
+          darkMode
+            ? "nav-dark"
+            : !darkMode && themetype === "blue"
+            ? "nav-light-blue"
+            : !darkMode && themetype === "green"
+            ? "nav-light-green"
+            : !darkMode && themetype === "instagram"
+            ? "nav-light-ig"
+            : "nav-light-blue"
+        }`}
+      >
         <div className="navbar-wrapper">
           <h1 onClick={handleClick}>Budget App</h1>
           <div className="right">

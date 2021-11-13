@@ -12,6 +12,7 @@ const ExpenseDetails = () => {
   };
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
+  let { themetype } = useContext(GlobalContext);
   let totalAmt;
   totalAmt = expenses.reduce((acc, item) => (acc += Number(item.amount)), 0);
   return (
@@ -29,8 +30,16 @@ const ExpenseDetails = () => {
           </h1>
           <button
             className={`add-expense-btn ${
-              darkMode ? "btn-dark" : "btn-light"
-            } `}
+              darkMode
+                ? "btn-dark"
+                : !darkMode && themetype === "blue"
+                ? "btn-light-blue"
+                : !darkMode && themetype === "green"
+                ? "btn-light-green"
+                : !darkMode && themetype === "instagram"
+                ? "btn-light-ig"
+                : "btn-light-blue"
+            }`}
             onClick={handleClick}
           >
             Add Expense

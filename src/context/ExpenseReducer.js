@@ -37,6 +37,11 @@ export default (state, action) => {
         ...state,
         settingstype: action.payload,
       };
+    case "CHANGE_THEME":
+      return {
+        ...state,
+        themetype: action.payload,
+      };
     default:
       return state;
   }
