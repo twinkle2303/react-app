@@ -1,4 +1,4 @@
-import React, { useContext, useLayoutEffect } from "react";
+import React, { useContext } from "react";
 import blue from "../../images/lightbg.jpg";
 import green from "../../images/Green.jpg";
 import instagram from "../../images/Instagram.jpg";
@@ -16,8 +16,6 @@ const Appearance = () => {
     }
     changetheme(e.target.parentElement.classList.value);
     e.target.parentElement.classList.add("selected");
-
-    //
   };
   return (
     <div className="appearance-wrapper">

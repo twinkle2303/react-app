@@ -15,7 +15,7 @@ const ExpenseFilterForm = () => {
       <div className="container filter-content">
         <input
           type="text"
-          placeholder="Search Expenses"
+          placeholder="Search"
           name="searchInput"
           autocomplete="off"
         />
