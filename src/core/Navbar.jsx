@@ -10,7 +10,7 @@ const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => false);
   const theme = useContext(ThemeContext);
   const darkMode = theme.state.darkMode;
-  let { themetype } = useContext(GlobalContext);
+  let { themetype, layouttype } = useContext(GlobalContext);
   let history = useHistory();
   const handleClick = () => {
     history.push("/");
@@ -41,7 +41,7 @@ const Navbar = () => {
         }`}
       >
         <div className="navbar-wrapper">
-          <h1 onClick={handleClick}>Budget App</h1>
+          <h1 onClick={handleClick}>{layouttype || "Budget App"}</h1>
           <div className="right">
             <span className="theme-btn" onClick={onClick}>
               <DarkModeToggle

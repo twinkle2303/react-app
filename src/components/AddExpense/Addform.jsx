@@ -6,19 +6,41 @@ import { v4 as uuidv4 } from "uuid";
 const Addform = () => {
   let [data, setdata] = useState(null);
   let params = useParams();
-  let { extractitem, foundobj } = useContext(GlobalContext);
+  let { extractitem, extractitem2, extractitem3, foundobj } =
+    useContext(GlobalContext);
   useEffect(() => {
     if (params.id !== undefined) {
-      extractitem(params.id);
+      if (layouttype === "Budget App") {
+        extractitem(params.id);
+      } else if (layouttype === "Todo-List App") {
+        extractitem2(params.id);
+      } else if (layouttype === "Grocery-List App") {
+        extractitem3(params.id);
+      } else {
+        extractitem(params.id);
+      }
+
       setdata(foundobj);
     }
   }, [foundobj]);
   let history = useHistory();
 
-  let { addExpense, expenses, replacewithnew } = useContext(GlobalContext);
+  let {
+    addExpense,
+    addTodo,
+    addItem,
+    replacewithnew,
+    replacewithnew2,
+    replacewithnew3,
+    themetype,
+    layouttype,
+  } = useContext(GlobalContext);
+  console.log(layouttype);
   let [formData, setFormData] = useState({
     description: "",
+    qty: 0,
     amount: 0,
+    time: "",
     date: "",
     note: "",
     id: "",
@@ -26,7 +48,6 @@ const Addform = () => {
   useEffect(() => {
     if (data !== null || data !== undefined) {
       setFormData({ ...data });
-      console.log(formData);
     }
   }, [data]);
   //theme
@@ -40,20 +61,37 @@ const Addform = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (params.id === undefined) {
-      addExpense({ ...formData, id: uuidv4() });
+      if (layouttype === "Budget App") {
+        addExpense({ ...formData, id: uuidv4() });
+      } else if (layouttype === "Todo-List App") {
+        addTodo({ ...formData, id: uuidv4() });
+      } else if (layouttype === "Grocery-List App") {
+        addItem({ ...formData, id: uuidv4() });
+      } else {
+        addExpense({ ...formData, id: uuidv4() });
+      }
     } else {
-      replacewithnew(formData);
+      if (layouttype === "Budget App") {
+        replacewithnew(formData);
+      } else if (layouttype === "Todo-List App") {
+        replacewithnew2(formData);
+      } else if (layouttype === "Grocery-List App") {
+        replacewithnew3(formData);
+      } else {
+        replacewithnew(formData);
+      }
     }
 
     setFormData({
       description: "",
+      qty: "",
       amount: "",
       date: "",
       note: "",
+      time: "",
     });
     history.push("/");
   };
-  let { themetype } = useContext(GlobalContext);
 
   return (
     <Fragment>
@@ -67,33 +105,55 @@ const Addform = () => {
               onChange={handleChange}
               value={formData.description}
               required
+              autoComplete="off"
             />
+
             <input
-              type="number"
-              placeholder="Amount"
-              name="amount"
+              type={`${layouttype !== "Todo-List App" ? "amount" : "time"}`}
+              placeholder={`${
+                layouttype !== "Todo-List App" ? "Amount" : "Time"
+              }`}
+              name={`${layouttype !== "Todo-List App" ? "amount" : "time"}`}
               onChange={handleChange}
-              value={formData.amount}
+              value={
+                layouttype !== "Todo-List App" ? formData.amount : formData.time
+              }
+              autoComplete="off"
               required
             />
             <input
-              type="date"
-              name="date"
+              type={`${layouttype !== "Grocery-List App" ? "date" : "number"}`}
+              name={`${layouttype !== "Grocery-List App" ? "date" : "qty"}`}
+              placeholder={`${
+                layouttype !== "Grocery-List App" ? "date" : "Quantity"
+              }`}
               onChange={handleChange}
-              value={formData.date}
+              value={
+                layouttype !== "Grocery-List App" ? formData.date : formData.qty
+              }
+              autoComplete="off"
               required
             />
             <textarea
               name="note"
               cols="30"
               rows="10"
-              placeholder="Add a note for your expense (optional)"
+              placeholder="Add a note (optional)"
               onChange={handleChange}
               value={formData.note}
+              autoComplete="off"
             ></textarea>
             <input
               type="submit"
-              value="Save Expense"
+              value={` ${
+                layouttype === "Budget App"
+                  ? "Save Expense"
+                  : layouttype === "Todo-List App"
+                  ? "Save Todo"
+                  : layouttype === "Grocery-List App"
+                  ? "Save Item"
+                  : "Save Expense"
+              }`}
               className={`submit-btn ${
                 darkMode
                   ? "btn-dark"

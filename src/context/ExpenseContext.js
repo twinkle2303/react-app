@@ -1,10 +1,11 @@
 import React, { createContext, useReducer } from "react";
 import ExpenseReducer from "./ExpenseReducer";
 
-// import { GlobalContext } from "../../context/ExpenseContext/ExpenseContext";
-
 const initialState = {
   expenses: [],
+  todos: [],
+  groceries: [],
+  layouttype: "",
   foundobj: null,
   settingstype: "",
   themetype: "",
@@ -19,7 +20,7 @@ export const GlobalProvider = ({ children }) => {
   //   actions
   const addExpense = (newExpense) => {
     dispatch({
-      type: "ADD_EXPENSE", //mandatory
+      type: "ADD_EXPENSE",
       payload: newExpense,
     });
   };
@@ -36,7 +37,43 @@ export const GlobalProvider = ({ children }) => {
       payload: obj,
     });
   };
-  const removeExpense = (item) => {
+  const extractitem2 = (id) => {
+    dispatch({
+      type: "EXTRACT_ITEM_2",
+      payload: id,
+    });
+  };
+  const replacewithnew2 = (obj) => {
+    dispatch({
+      type: "REPLACE_WITH_2",
+      payload: obj,
+    });
+  };
+  const extractitem3 = (id) => {
+    dispatch({
+      type: "EXTRACT_ITEM_3",
+      payload: id,
+    });
+  };
+  const replacewithnew3 = (obj) => {
+    dispatch({
+      type: "REPLACE_WITH_3",
+      payload: obj,
+    });
+  };
+  const removeExpense = (expense) => {
+    dispatch({
+      type: "DEL_EXPENSE",
+      payload: expense,
+    });
+  };
+  const removeTodo = (todo) => {
+    dispatch({
+      type: "DEL_TODO",
+      payload: todo,
+    });
+  };
+  const removeItem = (item) => {
     dispatch({
       type: "DEL_ITEM",
       payload: item,
@@ -54,20 +91,49 @@ export const GlobalProvider = ({ children }) => {
       payload: str,
     });
   };
+  const changelayout = (str) => {
+    dispatch({
+      type: "CHANGE_LAYOUT",
+      payload: str,
+    });
+  };
+  const addTodo = (newTodo) => {
+    dispatch({
+      type: "ADD_TODO",
+      payload: newTodo,
+    });
+  };
+  const addItem = (newItem) => {
+    dispatch({
+      type: "ADD_ITEM",
+      payload: newItem,
+    });
+  };
   return (
     <GlobalContext.Provider
       value={{
         expenses: state.expenses,
         foundobj: state.foundobj,
-        item: state.item,
         settingstype: state.settingstype,
         themetype: state.themetype,
+        layouttype: state.layouttype,
+        todos: state.todos,
+        groceries: state.groceries,
         addExpense,
         extractitem,
+        extractitem2,
+        extractitem3,
         replacewithnew,
         changetype,
+        replacewithnew2,
+        replacewithnew3,
         removeExpense,
         changetheme,
+        changelayout,
+        addTodo,
+        addItem,
+        removeItem,
+        removeTodo,
       }}
     >
       {children}

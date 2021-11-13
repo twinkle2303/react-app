@@ -269,7 +269,8 @@
 .expense-item h6 {
   font: 8px;
 }
-.amount {
+.amount,
+.time {
   margin-right: 20px;
 }
 

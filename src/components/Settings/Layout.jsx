@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../../context/ExpenseContext";
 
 const Layout = () => {
+  let { changelayout } = useContext(GlobalContext);
   const handleClick = (e) => {
     let ulchild = e.target.parentElement.children;
-    console.log(ulchild);
     for (let i = 0; i < ulchild.length; i++) {
       if (ulchild[i].classList.contains("focused")) {
         ulchild[i].classList.remove("focused");
       }
     }
     e.target.classList.add("focused");
+    console.log(e.target.textContent.trim());
+    changelayout(e.target.textContent.trim());
   };
   return (
     <div className="layout-wrapper">
