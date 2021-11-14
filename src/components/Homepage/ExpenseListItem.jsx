@@ -56,7 +56,7 @@ const ExpenseListItem = ({ idx, item }) => {
             {calcdate[0]}
           </h6>
         ) : (
-          <h6>Qty:{item.qty}</h6>
+          <h6>Qty:{parseInt(item.qty, 10)}</h6>
         )}
       </span>
 

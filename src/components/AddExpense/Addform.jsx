@@ -40,7 +40,7 @@ const Addform = () => {
   let [formData, setFormData] = useState({
     description: "",
     qty: 0,
-    amount: 0,
+    amount: "",
     time: "",
     date: "",
     note: "",
@@ -84,7 +84,7 @@ const Addform = () => {
           replacewithnew(formData);
         }
       }
-
+      save();
       setFormData({
         description: "",
         qty: "",
@@ -92,8 +92,12 @@ const Addform = () => {
         date: "",
         note: "",
         time: "",
+        id: "",
       });
-      history.push("/");
+
+      setTimeout(() => {
+        history.push("/");
+      }, 3000);
     }
   };
   const formValidation = () => {
@@ -160,11 +164,36 @@ const Addform = () => {
     });
   }
 
+  function save() {
+    if (darkMode) {
+      toast.success("Saved Successfully", {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast.success("Saved Successfully", {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  }
+
   return (
     <Fragment>
       <div className={`form-wrapper ${darkMode ? "wrap-dark" : "wrap-light"}`}>
         <div className="container">
           <form onSubmit={handleSubmit}>
+            <label for="description">Description</label>
             <input
               type="text"
               placeholder="Description"
@@ -174,7 +203,15 @@ const Addform = () => {
               required
               autoComplete="off"
             />
-
+            {layouttype === "Budget App" ? (
+              <label for="amount">Amount</label>
+            ) : layouttype === "Todo-List App" ? (
+              <label for="time">Time</label>
+            ) : layouttype === "Grocery-List App" ? (
+              <label for="amount">Price</label>
+            ) : (
+              <label for="amount">Amount</label>
+            )}
             <input
               type={`${layouttype !== "Todo-List App" ? "number" : "time"}`}
               placeholder={`${
@@ -188,6 +225,11 @@ const Addform = () => {
               autoComplete="off"
               required
             />
+            {layouttype !== "Grocery-List App" ? (
+              <label for="date">Date</label>
+            ) : (
+              <label for="qty">Quanity</label>
+            )}
             <input
               type={`${layouttype !== "Grocery-List App" ? "date" : "number"}`}
               name={`${layouttype !== "Grocery-List App" ? "date" : "qty"}`}
@@ -201,6 +243,7 @@ const Addform = () => {
               autoComplete="off"
               required
             />
+            <label for="note">Note</label>
             <textarea
               name="note"
               cols="30"
