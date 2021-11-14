@@ -13,7 +13,7 @@ const Layout = () => {
         <div className="layout-options">
           <div
             className={`layouts ${
-              layouttype === "Budget App" ? "focused" : {}
+              layouttype === "Budget App" || layouttype === "" ? "focused" : {}
             }`}
             onClick={(e) => handleClick(e)}
           >

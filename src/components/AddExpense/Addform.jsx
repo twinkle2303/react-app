@@ -3,6 +3,8 @@ import { GlobalContext } from "../../context/ExpenseContext";
 import { useHistory, useParams } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
 import { v4 as uuidv4 } from "uuid";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Addform = () => {
   let [data, setdata] = useState(null);
   let params = useParams();
@@ -35,7 +37,6 @@ const Addform = () => {
     themetype,
     layouttype,
   } = useContext(GlobalContext);
-  console.log(layouttype);
   let [formData, setFormData] = useState({
     description: "",
     qty: 0,
@@ -60,38 +61,104 @@ const Addform = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (params.id === undefined) {
-      if (layouttype === "Budget App") {
-        addExpense({ ...formData, id: uuidv4() });
-      } else if (layouttype === "Todo-List App") {
-        addTodo({ ...formData, id: uuidv4() });
-      } else if (layouttype === "Grocery-List App") {
-        addItem({ ...formData, id: uuidv4() });
+    const isValid = formValidation();
+    if (isValid) {
+      if (params.id === undefined) {
+        if (layouttype === "Budget App") {
+          addExpense({ ...formData, id: uuidv4() });
+        } else if (layouttype === "Todo-List App") {
+          addTodo({ ...formData, id: uuidv4() });
+        } else if (layouttype === "Grocery-List App") {
+          addItem({ ...formData, id: uuidv4() });
+        } else {
+          addExpense({ ...formData, id: uuidv4() });
+        }
       } else {
-        addExpense({ ...formData, id: uuidv4() });
+        if (layouttype === "Budget App") {
+          replacewithnew(formData);
+        } else if (layouttype === "Todo-List App") {
+          replacewithnew2(formData);
+        } else if (layouttype === "Grocery-List App") {
+          replacewithnew3(formData);
+        } else {
+          replacewithnew(formData);
+        }
       }
-    } else {
-      if (layouttype === "Budget App") {
-        replacewithnew(formData);
-      } else if (layouttype === "Todo-List App") {
-        replacewithnew2(formData);
-      } else if (layouttype === "Grocery-List App") {
-        replacewithnew3(formData);
-      } else {
-        replacewithnew(formData);
+
+      setFormData({
+        description: "",
+        qty: "",
+        amount: "",
+        date: "",
+        note: "",
+        time: "",
+      });
+      history.push("/");
+    }
+  };
+  const formValidation = () => {
+    let isValid = true;
+
+    //Description
+    let isDescriptionValid = true;
+    let desc = formData.description;
+    for (let i in desc) {
+      if (
+        !(
+          (desc.charCodeAt(i) >= 65 && desc.charCodeAt(i) <= 90) ||
+          (desc.charCodeAt(i) >= 97 && desc.charCodeAt(i) <= 122)
+        )
+      ) {
+        isDescriptionValid = false;
+        break;
+      }
+    }
+    if (!isDescriptionValid) {
+      notify("Only alphabets allowed in description!");
+      isValid = false;
+    }
+    //amount
+    if (formData.amount !== undefined) {
+      let amt = formData.amount;
+      let isAmtValid = true;
+      if (amt <= 0) {
+        isAmtValid = false;
+      }
+
+      if (!isAmtValid) {
+        notify("Please enter valid amount");
+        isValid = false;
       }
     }
 
-    setFormData({
-      description: "",
-      qty: "",
-      amount: "",
-      date: "",
-      note: "",
-      time: "",
-    });
-    history.push("/");
+    //qty
+    if (formData.qty !== undefined) {
+      let qty = formData.qty;
+      let isQtyValid = true;
+      if (qty <= 0) {
+        isQtyValid = false;
+      }
+
+      if (!isQtyValid) {
+        notify("Quantity should be atleast 1!");
+        isValid = false;
+      }
+    }
+
+    return isValid;
   };
+
+  function notify(str) {
+    toast.error(str, {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
 
   return (
     <Fragment>
@@ -109,7 +176,7 @@ const Addform = () => {
             />
 
             <input
-              type={`${layouttype !== "Todo-List App" ? "amount" : "time"}`}
+              type={`${layouttype !== "Todo-List App" ? "number" : "time"}`}
               placeholder={`${
                 layouttype !== "Todo-List App" ? "Amount" : "Time"
               }`}
@@ -169,6 +236,7 @@ const Addform = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </Fragment>
   );
 };
