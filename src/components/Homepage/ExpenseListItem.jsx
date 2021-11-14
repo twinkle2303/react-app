@@ -62,7 +62,7 @@ const ExpenseListItem = ({ idx, item }) => {
 
       <div>
         {layouttype !== "Todo-List App" ? (
-          <strong className="amount">₹{item.amount}</strong>
+          <strong className="amount">₹{parseInt(item.amount, 10)}</strong>
         ) : (
           <strong className="time">{item.time}</strong>
         )}

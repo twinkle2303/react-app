@@ -5,32 +5,37 @@ import instagram from "../../images/Instagram.jpg";
 import { GlobalContext } from "../../context/ExpenseContext";
 
 const Appearance = () => {
-  let { changetheme } = useContext(GlobalContext);
+  let { changetheme, themetype } = useContext(GlobalContext);
   const handleClick = (e) => {
-    let divchild = e.target.parentElement.parentElement.children;
-
-    for (let i = 0; i < divchild.length; i++) {
-      if (divchild[i].classList.contains("selected")) {
-        divchild[i].classList.remove("selected");
-      }
-    }
-    changetheme(e.target.parentElement.classList.value);
-    e.target.parentElement.classList.add("selected");
+    changetheme(e.target.parentElement.classList[0]);
   };
   return (
     <div className="appearance-wrapper">
       <div className="container">
         <h2>Choose your theme preference:</h2>
         <div className="theme-options">
-          <div className="selected blue" onClick={(e) => handleClick(e)}>
+          <div
+            className={`blue ${
+              themetype === "blue" || themetype === "" ? "selected" : {}
+            }`}
+            onClick={(e) => handleClick(e)}
+          >
             <img src={blue} alt="" />
             <h4>blue</h4>
           </div>
-          <div className="green" onClick={(e) => handleClick(e)}>
+          <div
+            className={`green ${themetype === "green" ? "selected" : {}}`}
+            onClick={(e) => handleClick(e)}
+          >
             <img src={green} alt="" />
             <h4>green</h4>
           </div>
-          <div className="instagram" onClick={(e) => handleClick(e)}>
+          <div
+            className={`instagram ${
+              themetype === "instagram" ? "selected" : {}
+            }`}
+            onClick={(e) => handleClick(e)}
+          >
             <img src={instagram} alt="" />
             <h4>instagram</h4>
           </div>
