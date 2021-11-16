@@ -9,6 +9,7 @@ const initialState = {
   foundobj: null,
   settingstype: "",
   themetype: "",
+  filtertype: "",
 };
 
 // Created Context
@@ -85,6 +86,12 @@ export const GlobalProvider = ({ children }) => {
       payload: str,
     });
   };
+  const changefiltertype = (str) => {
+    dispatch({
+      type: "CHANGE_FILTER",
+      payload: str,
+    });
+  };
   const changetheme = (str) => {
     dispatch({
       type: "CHANGE_THEME",
@@ -119,6 +126,7 @@ export const GlobalProvider = ({ children }) => {
         layouttype: state.layouttype,
         todos: state.todos,
         groceries: state.groceries,
+        filtertype: state.filtertype,
         addExpense,
         extractitem,
         extractitem2,
@@ -134,6 +142,7 @@ export const GlobalProvider = ({ children }) => {
         addItem,
         removeItem,
         removeTodo,
+        changefiltertype,
       }}
     >
       {children}
