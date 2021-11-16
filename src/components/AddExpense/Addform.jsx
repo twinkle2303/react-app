@@ -228,7 +228,7 @@ const Addform = () => {
             {layouttype !== "Grocery-List App" ? (
               <label for="date">Date</label>
             ) : (
-              <label for="qty">Quanity</label>
+              <label for="qty">Quantity</label>
             )}
             <input
               type={`${layouttype !== "Grocery-List App" ? "date" : "number"}`}

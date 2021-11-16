@@ -79,6 +79,11 @@ export default (state, action) => {
         ...state,
         settingstype: action.payload,
       };
+    case "CHANGE_FILTER":
+      return {
+        ...state,
+        filtertype: action.payload,
+      };
     case "CHANGE_THEME":
       return {
         ...state,
