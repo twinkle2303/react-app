@@ -449,3 +449,11 @@ input[type="date"] {
   border-radius: 8px;
   cursor: pointer;
 }
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  color: white;
+}

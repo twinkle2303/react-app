@@ -42,11 +42,11 @@ const ExpenseFilterForm = () => {
           <select
             name="filterDropdown"
             className="filter-dropdown"
-            placeholder="Filter by"
+            placeholder="Sort by"
             onChange={(e) => getSeletedValue(e)}
           >
             <option value="" disabled selected hidden>
-              Filter by
+              Sort by
             </option>
             <option value="filterDate">Date</option>
             <option value="filterAlpha">Alphabetical</option>
@@ -55,11 +55,11 @@ const ExpenseFilterForm = () => {
           <select
             name="filterDropdown"
             className="filter-dropdown"
-            placeholder="Filter by"
+            placeholder="Sort by"
             onChange={(e) => getSeletedValue(e)}
           >
             <option value="" disabled selected hidden>
-              Filter by
+              Sort by
             </option>
             <option value="filterAmt">Amount</option>
             <option value="filterAlpha">Alphabetical</option>
@@ -68,11 +68,11 @@ const ExpenseFilterForm = () => {
           <select
             name="filterDropdown"
             className="filter-dropdown"
-            placeholder="Filter by"
+            placeholder="Sort by"
             onChange={(e) => getSeletedValue(e)}
           >
             <option value="" disabled selected hidden>
-              Filter by
+              Sort by
             </option>
             <option value="filterDate">Date</option>
             <option value="filterAmt">Amount</option>

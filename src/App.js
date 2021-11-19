@@ -6,6 +6,7 @@ import Navbar from "./core/Navbar";
 import { GlobalProvider } from "./context/ExpenseContext";
 import "react-responsive-modal/styles.css";
 import Settings from "./Pages/Settings/Settings";
+import Footer from "./core/Footer";
 function App() {
   return (
     <GlobalProvider>
@@ -18,6 +19,7 @@ function App() {
           <Route exact={true} path="/edit/:id" component={AddExpense} />
           <Route exact={true} path="/settings" component={Settings} />
         </Switch>
+        <Footer />
       </Router>
     </GlobalProvider>
   );
